@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import AssetsPage from './AssetsPage'
 
 
-function Asset() {
-    const dispatch = useDispatch()
+function Assets() {
     const [isSelected, setIsSelected] = useState(false);
     // useEffect(() => {
     //     something
@@ -18,3 +17,4 @@ function Asset() {
         </>
     )
 }
+export default Assets
