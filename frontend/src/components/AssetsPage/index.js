@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import './AssetsPage.css';
+import React, { useState } from 'react';
+import AssetsPage from './AssetsPage'
 
 
 function Asset() {
@@ -15,6 +14,7 @@ function Asset() {
         <div>
             this is the assets page
         </div>
+        <AssetsPage />
         </>
     )
 }
