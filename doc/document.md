@@ -13,3 +13,78 @@ The backend logout flow will be based off of the following plan:
 
 The API logout route will be hit with a request
 The API logout handler will remove the JWT cookie set by the login or signup API routes and return a JSON success message
+
+
+database schema
+
+![DATABASE SETUP](https://user-images.githubusercontent.com/67036337/103301182-c741c900-49ce-11eb-8d96-dfd2169072d5.png)
+
+#assets
+
+| Name      | DataType | Details      |
+|-----------|----------|--------------|
+| 'id'        | int      | not null, PK |
+| 'price'     | int      | not null     |
+| 'marketCap' | int      | not null     |
+| 'rating'    | string(5)   | not null     |
+
+- Sequelize 'belongsToMany' 'dashboards' association
+- Sequelize 'belongsToMany' 'watchlists' association
+
+#watchlists
+
+| Name     | DataType | Details     |
+|----------|----------|-------------|
+| 'id'       | int      | not null,PK |
+| 'userId'   | int      | not null,FK |
+| 'assetId'  | int      | not null,FK |
+| 'invested' | boolean  | not null    |
+
+- Sequelize 'belongsToMany' 'dashboards' association
+
+#users
+
+| Name     | DataType   | Details          |
+|----------|------------|------------------|
+| 'id'       | int        | not null,PK      |
+| 'investor' | string     | not null         |
+| 'password' | bytea      | not null         |
+| 'email'    | string(50) | not null, unique |
+
+- Sequelize 'belongsToMany' 'dashboards' association
+- Sequelize 'belongsToMany' 'watchlists' association
+
+#financials
+
+| Name       | DataType   | Details      |
+|------------|------------|--------------|
+| 'id'         | int        | not null, PK |
+| 'costBasis'  | int        | not null     |
+| 'profit'     | int        | not null     |
+| 'percentage' | percentage | not null     |
+
+- Sequelize 'belongsToMany' 'portfolios' association
+
+#portfolio
+
+| Name         | DataType | Details      |
+|--------------|----------|--------------|
+| 'id'           | int      | not null, PK |
+|'assetId'     | int      | not null, FK |
+| 'userId'       | int      | not null, FK |
+| 'watchlistId'  | int      | not null, FK |
+| 'financialId' | int      | not null, FK |
+
+- 'assetId' references 'assets' table
+- 'userId' references 'users' table
+- 'watchlistId' references 'watchlists' table
+- 'financialId' references 'financials' table
+
+
+
+npx sequelize model:generate --name Assets --attributes price:integer,marketCap:integer,rating:string
+npx sequelize model:generate --name Watchlists --attributes userId:integer,assetId:integer,invested:boolean
+npx sequelize model:generate --name Users --attributes investor:string,password:string,email:string
+npx sequelize model:generate --name Financials --attributes costBasis:integer,profit:integer,percentage:decimal
+npx sequelize model:generate --name Portfolios --attributes assetId:integer,userId:integer,watchlistId:integer,financialId:integer
+npx sequelize db:migrate
