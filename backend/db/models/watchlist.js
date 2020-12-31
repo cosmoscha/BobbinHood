@@ -6,8 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     invested: DataTypes.BOOLEAN
   }, {});
   Watchlist.associate = function(models) {
-    Watchlist.belongsTo(models.Portfolio, {foreignKey:'watchlistId'})
-    Watchlist.hasMany(models.Asset, {foreignKey: 'watchlistId'})
+    // Watchlist.hasMany(models.Asset, {foreignKey: 'watchlistId'})
     Watchlist.belongsTo(models.User, {foreignKey: 'userId'})
   };
   return Watchlist;

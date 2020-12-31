@@ -7,8 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     rating: DataTypes.STRING
   }, {});
   Asset.associate = function(models) {
+    // const assetWatchlist = {
+    //   through :
+    // } //CREATE JOINS TABLE MANY TO MANY WITH WATCHLIST
+
     Asset.belongsTo(models.Portfolio, { foreignKey: 'portfolioId'})
-    Asset.belongsTo(models.Watchlist, { foreignKey: 'watchlistId'})
+    // Asset.belongsToMany(models.Watchlist, { foreignKey: 'watchlistId'})
   };
   return Asset;
 };
