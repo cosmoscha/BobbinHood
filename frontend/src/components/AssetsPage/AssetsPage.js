@@ -11,7 +11,7 @@ function AssetsPage () {
       return (
           <>
           <div id="Assets-List">
-              <NavLink to= {"/asset"}></NavLink>
+              <NavLink to= {"/asset"}>assets</NavLink>
           </div>
 
           <ul>assets list
