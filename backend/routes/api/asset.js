@@ -6,7 +6,7 @@ const {Asset} = require ('../../db/models');
 
 
 router.get(
-    './assetId',
+    '/:assetId',
     requireAuth,
      asyncHandler(async (req, res) => {
     const assetId = parseInt(req.params.assetId, 10);

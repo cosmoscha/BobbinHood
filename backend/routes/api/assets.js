@@ -9,7 +9,7 @@ router.get(
     requireAuth,
      asyncHandler(async (req, res) =>{
     const assets = await Asset.findAll();
-    // const financials = await Financial.findAll();
+
     res.json({assets: assets})
 }));
 

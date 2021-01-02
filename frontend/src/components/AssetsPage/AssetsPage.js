@@ -6,7 +6,7 @@ import {NavLink} from "react-router-dom"
 import './AssetsPage.css';
 
 const Asset = ({})
-function AssetsPage () {
+const AssetsPage= ()=> {
 
       return (
           <>
@@ -15,9 +15,9 @@ function AssetsPage () {
           </div>
 
           <ul>assets list
-              <li>
-
-              </li>
+              {/* {AssetsPage.map(() => (
+                  <li key={asset}>{asset}</li>
+              ))} */}
           </ul>
           </>
       )
