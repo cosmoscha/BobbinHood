@@ -7,8 +7,7 @@ import AssetsPage from "./components/AssetsPage";
 // import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import PageHeader from "./components/Header";
-import PageFooter from "./components/Footer";
+import WelcomePage from "./components/WelcomePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,8 +26,7 @@ function App() {
             <LoginFormPage />
           </Route> */}
           <Route exact path="/">
-            <PageHeader />
-            <PageFooter />
+            <WelcomePage />
           </Route>
           <Route path="/signup">
             <SignupFormPage />
