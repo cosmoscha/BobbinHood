@@ -8,7 +8,6 @@ const WelcomePage = () => {
 
     return (
         <>
-        <header className="header">here is the Header</header>
             <div className="taskbar">
                 this is where all the buttons will go aka the header, such as login,
                 signup, signout, home etc nvm, its in Navigation
@@ -18,7 +17,6 @@ const WelcomePage = () => {
             this is where the watchlist will go
             </div>
         </div>
-        <footer className="footer">here is the footer</footer>
         </>
     )
 }
