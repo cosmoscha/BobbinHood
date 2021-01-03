@@ -11,10 +11,10 @@ router.get(
      asyncHandler(async (req, res) => {
     const assetId = parseInt(req.params.assetId, 10);
 
-    const asset = await Asset.findOne(
-        {where: {id : assetId}})
-
-        res.json(asset)
-    }))
+    const asset = await Asset.findByPk(
+        assetId
+    )
+    return res.json(asset)
+     }))
 
     module.exports = router;

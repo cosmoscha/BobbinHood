@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <header className="header">here is the Header</header>
+      {/* <nav className="header">here is the Header</nav> */}
 
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
@@ -40,7 +40,7 @@ function App() {
           </Route>
         </Switch>
       )}
-      <footer className="footer">here is the footer</footer>
+      {/* <nav className="footer">here is the footer</nav> */}
     </>
   );
 }
