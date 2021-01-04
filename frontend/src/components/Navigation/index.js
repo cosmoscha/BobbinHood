@@ -15,7 +15,7 @@ function Navigation({ isLoaded }){
       <ProfileButton user={sessionUser} />
       <div className="menuButtons">
         <div>
-          <NavLink to="/asset">Assets</NavLink>
+          <NavLink to="/assets">Assets</NavLink>
         </div>
         <div>
           <NavLink to="/portfolio">Portfolio</NavLink>

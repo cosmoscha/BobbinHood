@@ -1,27 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {fetchAllSpots} from "../../store/assets";
-import {NavLink} from "react-router-dom"
+import {fetchAllAssets} from "../../store/assets";
+
 
 import './AssetsPage.css';
 
 const AssetsPage= ()=> {
 const dispatch = useDispatch();
-const AssetsList = useSelector((state) => state.assets.assets);
-useEffect (()=> {
-    dispatch(fetchAllSpots())
-})
+const AssetsList = useSelector((state) => state.assets);
+useEffect(async() => {
+    dispatch(fetchAllAssets()
+    )
+}, []);
       return (
           <>
           <div id="Assets-List">
-              <NavLink to= {"/assets"}>assets</NavLink>
+              {AssetsList.map(asset => {
+                  return <li>{asset}</li>
+              })}
           </div>
-
-          <ul>assets list
-              {AssetsList.map((asset) => (
-                  <li key={asset}>{asset}</li>
-              ))}
-          </ul>
           </>
       )
 }

@@ -9,7 +9,7 @@ const setAssets = (assets) => ({
 
 //thunks
 
-export const fetchAllSpots = () =>{
+export const fetchAllAssets = () =>{
     return async (dispatch) => {
         const res = await fetch("/api/assets")
         dispatch(

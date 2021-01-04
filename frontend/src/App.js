@@ -35,7 +35,7 @@ function App() {
           <Route path="/login">
             <LoginFormModal />
           </Route>
-          <Route path="/asset">
+          <Route path="/assets">
             <AssetsPage />
           </Route>
         </Switch>
