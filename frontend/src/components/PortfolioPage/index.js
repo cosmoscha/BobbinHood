@@ -5,9 +5,10 @@ import { Redirect } from "react-router-dom";
 
 function PortfolioPage() {
     return (
-        <div>
+        <h1>
             coming soon!
-        </div>
+         </h1>
+
     )
 }
 
