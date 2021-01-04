@@ -6,11 +6,19 @@ import { NavLink } from 'react-router-dom';
 
 import './AssetsPage.css';
 
+const Asset = ({theAsset}) => {
+  return (
+    <li>
+      <div>
+      {theAsset.name}
+        </div>
+    </li>
+  )
+}
+
 const AssetsPage= ()=> {
     const dispatch = useDispatch();
-    const AssetsList = useSelector(state => {
-    return state.assets;
-    });
+    const AssetsList = useSelector((state) => state.assets);
 
     useEffect(async() => {
     dispatch(fetchAllAssets()
@@ -19,13 +27,9 @@ const AssetsPage= ()=> {
       return (
           <div id="Assets-List">
           <h2>Assets List</h2>
-            {/* {!AssetsList && <h3>Loading ..........</h3>}
-            {AssetsList && Assetslist.map(asset => {
-                return <Asset theAsset={asset} key={asset.id} />;
-            })} */}
-        {/* <div>
-          <NavLink to="/asset/:assetId">Assets</NavLink>
-        </div> */}
+            {AssetsList.map((asset=> {
+              return <Asset theAsset={asset} key={asset.id} />
+            }))}
           </div>
       )
 }

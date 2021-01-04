@@ -15,6 +15,28 @@ router.get(
         assetId
     )
     return res.json(asset)
+}))
+
+     router.post(
+        '/add',
+     asyncHandler(async (req, res) => {
+         const {
+             portfolioId,
+             name,
+             price,
+             marketCap,
+             rating
+         } = req.body;
+
+         const newAsset = await Asset.create({
+            portfolioId,
+            name,
+            price,
+            marketCap,
+            rating
+         })
+
+         res.json({newAsset: newAsset})
      }))
 
     module.exports = router;
