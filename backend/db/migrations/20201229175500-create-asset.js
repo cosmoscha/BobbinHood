@@ -8,6 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      portfolioId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {model:"Portfolios"}
+      },
       name: {
         type: Sequelize.STRING(50),
         allowNull: false,

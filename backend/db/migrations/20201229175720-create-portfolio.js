@@ -8,25 +8,43 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      assetId: {
+      // assetId: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER,
+      //   references: {model:"Assets"}
+      // },
+      // userId: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER,
+      //   references: {model:"Users"}
+      // },
+      // watchlistId: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER,
+      //   references: {model:"Watchlists"}
+      // },
+      // financialId: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER,
+      //   references: {model:"Financials"}
+      // },
+      id: {
         allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {model:"Assets"}
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
       },
-      userId: {
+      costBasis: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model:"Users"}
       },
-      watchlistId: {
+      profit: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model:"Watchlists"}
       },
-      financialId: {
+      percentage: {
         allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {model:"Financials"}
+        type: Sequelize.DECIMAL,
       },
       createdAt: {
         allowNull: false,
