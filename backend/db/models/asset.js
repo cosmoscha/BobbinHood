@@ -1,17 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Asset = sequelize.define('Asset', {
+    portfolioId: DataTypes.INTEGER,
     name: DataTypes.STRING,
-    price: DataTypes.DECIMAL,
-    marketCap: DataTypes.INTEGER,
+    price: DataTypes.INTEGER,
+    marketCap: DataTypes.DECIMAL,
     rating: DataTypes.STRING
   }, {});
   Asset.associate = function(models) {
-    // const assetWatchlist = {
-    //   through :
-    // } //CREATE JOINS TABLE MANY TO MANY WITH WATCHLIST
-
-    Asset.belongsTo(models.Portfolio, { foreignKey: 'portfolioId'})
+    Asset.belongsTo(models.Portfolio,{ foreignKey: 'portfolioId'})
     // Asset.belongsToMany(models.Watchlist, { foreignKey: 'watchlistId'})
   };
   return Asset;

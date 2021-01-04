@@ -9,8 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       portfolioId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {model:"Portfolios"}
       },
       name: {

@@ -8,31 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      // assetId: {
-      //   allowNull: false,
-      //   type: Sequelize.INTEGER,
-      //   references: {model:"Assets"}
-      // },
-      // userId: {
-      //   allowNull: false,
-      //   type: Sequelize.INTEGER,
-      //   references: {model:"Users"}
-      // },
-      // watchlistId: {
-      //   allowNull: false,
-      //   type: Sequelize.INTEGER,
-      //   references: {model:"Watchlists"}
-      // },
-      // financialId: {
-      //   allowNull: false,
-      //   type: Sequelize.INTEGER,
-      //   references: {model:"Financials"}
-      // },
-      id: {
+      userId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
+        references: {model:"Users"}
       },
       costBasis: {
         allowNull: false,
