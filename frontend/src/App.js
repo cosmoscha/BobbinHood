@@ -8,6 +8,7 @@ import AssetsPage from "./components/AssetsPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import WelcomePage from "./components/WelcomePage";
+import AssetInformation from "./components/IndividualAsset";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path="/assets">
             <AssetsPage />
+          </Route>
+          <Route path="/asset/:assetId">
+            <AssetInformation />
           </Route>
         </Switch>
       )}

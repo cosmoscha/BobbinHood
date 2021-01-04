@@ -9,12 +9,11 @@ const WelcomePage = () => {
     return (
         <>
             <div className="taskbar">
-                this is where all the buttons will go aka the header, such as login,
-                signup, signout, home etc nvm, its in Navigation
+                website information, newsfeed etc
             </div>
         <div className="home-body">
             <div>
-            this is where the watchlist will go
+            im not sure if I need this component but it will stay just in case
             </div>
         </div>
         </>

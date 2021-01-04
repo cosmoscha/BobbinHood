@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {fetchAllAssets} from "../../store/assets";
+import { NavLink } from 'react-router-dom';
 
 
 import './AssetsPage.css';
@@ -15,9 +16,11 @@ useEffect(async() => {
       return (
           <>
           <div id="Assets-List">
-              {AssetsList.map(asset => {
-                  return <li>{asset}</li>
-              })}
+              {AssetsList}
+              I want there to be a navlink to each asset here, through map method
+              <div>
+          <NavLink to="/asset/:assetId">Assets</NavLink>
+        </div>
           </div>
           </>
       )
