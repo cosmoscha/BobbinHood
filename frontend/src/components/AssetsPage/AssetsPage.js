@@ -7,22 +7,26 @@ import { NavLink } from 'react-router-dom';
 import './AssetsPage.css';
 
 const AssetsPage= ()=> {
-const dispatch = useDispatch();
-const AssetsList = useSelector((state) => state.assets);
-useEffect(async() => {
+    const dispatch = useDispatch();
+    const AssetsList = useSelector(state => {
+    return state.assets;
+    });
+
+    useEffect(async() => {
     dispatch(fetchAllAssets()
     )
 }, []);
       return (
-          <>
           <div id="Assets-List">
-              {AssetsList}
-              I want there to be a navlink to each asset here, through map method
-              <div>
+          <h2>Assets List</h2>
+            {/* {!AssetsList && <h3>Loading ..........</h3>}
+            {AssetsList && Assetslist.map(asset => {
+                return <Asset theAsset={asset} key={asset.id} />;
+            })} */}
+        {/* <div>
           <NavLink to="/asset/:assetId">Assets</NavLink>
-        </div>
+        </div> */}
           </div>
-          </>
       )
 }
 

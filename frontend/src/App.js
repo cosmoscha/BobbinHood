@@ -4,11 +4,12 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormModal from "./components/LoginFormModal";
 import AssetsPage from "./components/AssetsPage";
-// import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import WelcomePage from "./components/WelcomePage";
 import AssetInformation from "./components/IndividualAsset";
+import PortfolioPage from "./components/PortfolioPage";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -24,9 +25,6 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          {/* <Route path="/login" >
-            <LoginFormPage />
-          </Route> */}
           <Route exact path="/">
             <WelcomePage />
           </Route>
@@ -41,6 +39,9 @@ function App() {
           </Route>
           <Route path="/asset/:assetId">
             <AssetInformation />
+          </Route>
+          <Route path="/portfolio">
+            <PortfolioPage />
           </Route>
         </Switch>
       )}
