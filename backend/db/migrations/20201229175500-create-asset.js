@@ -10,8 +10,8 @@ module.exports = {
       },
       portfolioId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {model:"Portfolios"}
+        allowNull: false
+        // references: {model:"Portfolios"}
       },
       name: {
         type: Sequelize.STRING(50),
