@@ -22,11 +22,11 @@ export const fetchAllAssets = () =>{
         );
     }
 }
-export const fetchOneAsset = () =>{
+export const fetchOneAsset = (id) =>{
     return async (dispatch) => {
-        const res = await fetch(`/api/asset`)
+        const res = await fetch(`/api/asset/${id}`)
         dispatch(
-            setOneAsset(res.data.asset)
+            setOneAsset(res.data)
         );
     }
 }
@@ -40,8 +40,12 @@ function reducer(state = initialState, action) {
     case SET_ASSETS:
       newState = action.assets
       return newState;
-    default:
+    case SET_ONE_ASSET:
+        newState = [action.asset] //make the value of the redux state =1
+      return newState;
+     default:
       return state;
+
   }
 }
 

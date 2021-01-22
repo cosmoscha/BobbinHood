@@ -7,11 +7,11 @@ const destroyAsset= (asset)=> ({
     deadAsset: asset
 })
 
-export const deleteAnAsset =() => {
-    return async (dispatch) => {
-        const res = await fetch("/api/assets")
-        dispatch(
-            setAssets(res.data.assets)
-        );
-    }
-}
+// export const deleteAnAsset =() => {
+//     return async (dispatch) => {
+//         const res = await fetch("/api/assets")
+//         dispatch(
+//             destroyAsset(res.data.deadAsset)
+//         );
+//     }
+// }

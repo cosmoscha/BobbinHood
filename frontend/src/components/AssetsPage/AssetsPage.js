@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {fetchAllAssets} from "../../store/assets";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+
 
 
 import './AssetsPage.css';
 
 const Asset = ({theAsset}) => {
+  const linkUrl = `/asset/${theAsset.id}`
   return (
     <li>
       <div>
+        <Link to={linkUrl}>
       {theAsset.name}
+        </Link>
         </div>
     </li>
   )
@@ -20,10 +24,13 @@ const AssetsPage= ()=> {
     const dispatch = useDispatch();
     const AssetsList = useSelector((state) => state.assets);
 
+
     useEffect(async() => {
-    dispatch(fetchAllAssets()
-    )
-}, []);
+      dispatch(fetchAllAssets())
+    }, []);
+
+    if(!AssetsList) return null;
+
       return (
           <div id="Assets-List">
           <h2>Assets List</h2>
