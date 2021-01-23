@@ -1,29 +1,22 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Portfolios', {
+    return queryInterface.createTable('assetWatchlists', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {model:"Users"}
-      },
-      costBasis: {
+      assetId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        references: {model: "Assets"}
       },
-      profit: {
+      watchlistId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-      },
-      percentage: {
-        allowNull: false,
-        type: Sequelize.DECIMAL,
+        references: {model: "Portfolios"}
       },
       createdAt: {
         allowNull: false,
@@ -38,6 +31,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Portfolios');
+    return queryInterface.dropTable('assetWatchlists');
   }
 };

@@ -6,8 +6,13 @@ module.exports = (sequelize, DataTypes) => {
     invested: DataTypes.BOOLEAN
   }, {});
   Watchlist.associate = function(models) {
-    // Watchlist.hasMany(models.Asset, {foreignKey: 'watchlistId'})
+    const columnMapping = {
+      through: 'assetWatchlist',
+      otherKey: 'assetId',
+      foreignKey: 'watchlistId'
+  }
     Watchlist.belongsTo(models.User, {foreignKey: 'userId'})
+    Watchlist.belongsToMany(models.Asset, columnMapping)
   };
   return Watchlist;
 };

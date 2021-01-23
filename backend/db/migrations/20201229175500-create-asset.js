@@ -1,46 +1,47 @@
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Assets', {
+    return queryInterface.createTable("Assets", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       portfolioId: {
         type: Sequelize.INTEGER,
-        allowNull: false
-        // references: {model:"Portfolios"}
+        allowNull: true,
       },
       name: {
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING,
         allowNull: false,
-        unique: true
+        unique: true,
       },
       price: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
+        type: Sequelize.DECIMAL,
+        allowNull: true,
       },
       marketCap: {
         type: Sequelize.DECIMAL,
-        allowNull: false,
+        allowNull: true,
       },
       rating: {
-        type: Sequelize.STRING(5),
-        allowNull: false,
+        type: Sequelize.STRING,
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("NOW"),
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("NOW"),
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Assets');
-  }
+    return queryInterface.dropTable("Assets");
+  },
 };
