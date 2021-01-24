@@ -10,12 +10,13 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: { model: "Users" },
       },
       assetId: {
         type: Sequelize.INTEGER,
         allowNull: true,
+        references: { model: "Assets" },
       },
       costBasis: {
         allowNull: false,

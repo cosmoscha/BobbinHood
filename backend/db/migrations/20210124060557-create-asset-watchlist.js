@@ -9,24 +9,18 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       assetId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {model: "Assets"}
+        type: Sequelize.INTEGER
       },
       watchlistId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {model: "Portfolios"}
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.fn("NOW")
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.fn("NOW")
+        type: Sequelize.DATE
       }
     });
   },

@@ -3,7 +3,6 @@ module.exports = (sequelize, DataTypes) => {
   const Asset = sequelize.define(
     "Asset",
     {
-      portfolioId: DataTypes.INTEGER,
       name: DataTypes.STRING,
       price: DataTypes.DECIMAL,
       marketCap: DataTypes.DECIMAL,
@@ -17,12 +16,12 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: "watchlistId",
       foreignKey: "assetId",
     };
-    const assetPortfolioMapping = {
-      through: "assetPortfolio",
-      otherKey: "portfolioId",
+    const PortfolioMapping = {
+      through: "Portfolio",
+      otherKey: "userId",
       foreignKey: "assetId",
     };
-    Asset.belongsTo(models.Portfolio, assetPortfolioMapping);
+    Asset.belongsToMany(models.User, PortfolioMapping);
     Asset.belongsToMany(models.Watchlist, watchlistMapping);
   };
   return Asset;
