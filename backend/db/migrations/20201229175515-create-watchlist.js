@@ -8,9 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      invested: {
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: { model: "Users" },
+      },
+      assetsList: {
         type: Sequelize.BOOLEAN,
-        allowNull: false,
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,

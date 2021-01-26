@@ -50,18 +50,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   User.associate = function (models) {
-    const PortfolioMapping = {
-      foreignKey: "userId",
-      through: "Portfolio",
-      otherKey: "assetId",
-    };
-    // const userWatchlistMap = {
+    // const PortfolioMap = {
     //   foreignKey: "userId",
-    //   through: "userWatchlist",
-    //   otherKey: "watchlistId",
+    //   through: "Portfolio",
+    //   otherKey: "assetId",
     // };
-    User.belongsToMany(models.Asset, PortfolioMapping);
-    // User.belongsToMany(models.Watchlist, userWatchlistMap);
+    // const userWatchlistMap = {
+    //   foreignKey: "userTwoId",
+    //   through: "Watchlist",
+    //   otherKey: "assetTwoId",
+    // };
+    User.hasOne(models.Portfolio, { foreignKey: "userId" });
+    User.hasOne(models.Watchlist, { foreignKey: "userId" });
+    // User.belongsToMany(models.Asset, userWatchlistMap);
   };
 
   User.prototype.toSafeObject = function () {

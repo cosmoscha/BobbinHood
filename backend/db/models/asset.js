@@ -11,18 +11,18 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Asset.associate = function (models) {
-    const watchlistMapping = {
+    const watchlistMap = {
       through: "assetWatchlist",
       otherKey: "watchlistId",
       foreignKey: "assetId",
     };
-    const PortfolioMapping = {
-      through: "Portfolio",
-      otherKey: "userId",
+    const PortfolioMap = {
+      through: "assetPortfolio",
+      otherKey: "portfolioId",
       foreignKey: "assetId",
     };
-    Asset.belongsToMany(models.User, PortfolioMapping);
-    Asset.belongsToMany(models.Watchlist, watchlistMapping);
+    Asset.belongsToMany(models.Portfolio, PortfolioMap);
+    Asset.belongsToMany(models.Watchlist, watchlistMap);
   };
   return Asset;
 };

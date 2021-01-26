@@ -10,6 +10,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  Portfolio.associate = function (models) {};
+  Portfolio.associate = function (models) {
+    const assetPortfolioMap = {
+      through: "assetPortfolio",
+      otherKey: "assetId",
+      foreignKey: "portfolioId",
+    };
+    Portfolio.belongsTo(models.User, { foreignKey: "userId" });
+    Portfolio.belongsToMany(models.Asset, assetPortfolioMap);
+  };
   return Portfolio;
 };

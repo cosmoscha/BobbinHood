@@ -13,21 +13,16 @@ module.exports = {
         allowNull: true,
         references: { model: "Users" },
       },
-      assetId: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: { model: "Assets" },
-      },
       costBasis: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
       },
       profit: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
       },
       percentage: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DECIMAL,
       },
       createdAt: {

@@ -6,13 +6,13 @@ module.exports = {
       "Assets",
       [
         {
-          name: "Breadcrumb-rare",
+          name: "Breadcrumb",
           price: null,
           marketCap: null,
           rating: null,
         },
         {
-          name: "BurgerCrumb",
+          name: "BurgerMeat",
           price: null,
           marketCap: null,
           rating: null,
@@ -31,6 +31,30 @@ module.exports = {
         },
         {
           name: "Raid",
+          price: null,
+          marketCap: null,
+          rating: null,
+        },
+        {
+          name: "Aphid",
+          price: null,
+          marketCap: null,
+          rating: null,
+        },
+        {
+          name: "Tomato",
+          price: null,
+          marketCap: null,
+          rating: null,
+        },
+        {
+          name: "Termite",
+          price: null,
+          marketCap: null,
+          rating: null,
+        },
+        {
+          name: "Squirrel",
           price: null,
           marketCap: null,
           rating: null,
