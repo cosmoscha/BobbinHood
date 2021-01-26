@@ -14,7 +14,7 @@ router.get(
       include: [
         {
           model: Asset,
-          through: { attributes: [] },
+          through: { attributes: ["assetId", "portfolioId"] },
         },
       ],
     });
