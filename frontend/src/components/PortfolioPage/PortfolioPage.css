@@ -1,0 +1,13 @@
+.PortfolioContainer {
+  display: grid;
+  grid-template-columns: repeat(100px, 4);
+  justify-content: center;
+  align-items: space-around;
+}
+.PortfolioTable {
+  display: grid;
+}
+.tablerow {
+  display: flex;
+  justify-content: center;
+}

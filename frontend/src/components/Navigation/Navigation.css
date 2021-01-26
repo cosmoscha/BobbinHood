@@ -1,14 +1,18 @@
 .profile-dropdown {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: right;
 }
-
+.menuContainer {
+  display: grid;
+  grid-template-columns: 1, 1, 1, 1, 2;
+}
 .menuButtons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  grid-column-start: 5;
+  grid-column-end: 5;
+  display: grid;
+  justify-content: center;
+  align-items: row;
 }
 .logOutButtons {
   display: flex;

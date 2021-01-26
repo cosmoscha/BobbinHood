@@ -1,21 +1,35 @@
 .header {
-    background-color: lightblue;
+  background-color: lightblue;
 }
 
-.taskbar {
-    background-color: lime;
-}
+/* .taskbar {
+
+} */
 .home-body {
-    background-color: pink;
+  /* display: grid;
+  grid-template-columns: repeat(1fr, 6);
+  grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr 1fr; */
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+}
+
+.graph-placeholder {
+  /* grid-row-start: 3;
+  grid-row-end: 3; */
+  display: flex;
+  justify-content: center;
+  align-items: row;
+  /* background-image: url(ants.jpg); */
+  background-size: cover;
+  background-color: green;
+}
+* {
+  background-color: black;
+  color: white;
+  font: "Maison Neue";
 }
 
 .footer {
-    background-color :red;
-}
-
-*{
-background-image: url(ants.jpg);
-background-size: 2000px 1000px;
-background-repeat: no-repeat;
-
+  background-color: red;
 }

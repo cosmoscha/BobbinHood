@@ -23,6 +23,20 @@ router.get(
 );
 
 router.post(
+  "/create",
+  asyncHandler(async (req, res) => {
+    const { userId, costBasis, profit, percentage } = req.body;
+    const portfolio = await Portfolio.create({
+      userId,
+      costBasis,
+      profit,
+      percentage,
+    });
+    return res.json({ portfolio });
+  })
+);
+
+router.post(
   "/delete/:assetId",
   asyncHandler(async (req, res) => {
     // const userId = await parseInt(req.session.auth.userId);

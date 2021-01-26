@@ -9,7 +9,7 @@ import Navigation from "./components/Navigation";
 import WelcomePage from "./components/WelcomePage";
 import AssetInformation from "./components/IndividualAsset";
 import PortfolioPage from "./components/PortfolioPage";
-
+import WatchlistPage from "./components/WatchlistPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +42,9 @@ function App() {
           </Route>
           <Route path="/portfolio">
             <PortfolioPage />
+          </Route>
+          <Route path="/watchlist">
+            <WatchlistPage />
           </Route>
         </Switch>
       )}
