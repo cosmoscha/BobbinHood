@@ -30,10 +30,10 @@ function PortfolioPage() {
             <td>CB of the asset{portfolio.costBasis}</td>
             <td>profit of the asset{portfolio.profit}</td>
             <td>percentage of portfolio{portfolio.percentage}</td>
-            <td>
-              <button>this button will delete an asset</button>
-            </td>
           </tr>
+          <td>
+            <button>this button will delete an asset</button>
+          </td>
           <tr>
             <td>name of the asset{portfolio.name}</td>
             <td>CB of the asset{portfolio.costBasis}</td>

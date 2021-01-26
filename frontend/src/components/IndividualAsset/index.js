@@ -11,6 +11,7 @@ const AssetInformation = () => {
 
   const addToPortfolio = (e) => {
     e.preventDefault();
+    console.log("url information", urlInformation.assetId);
     dispatch(postAnAsset(urlInformation.assetId));
   };
 

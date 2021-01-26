@@ -53,14 +53,15 @@ router.post(
   "/:assetToBeAddedId",
   asyncHandler(async (req, res) => {
     console.log("post an asset");
+    console.log(req.params);
     const portfolioId = 4;
-    const assetId = parseInt(req.params.assetId, 10);
+    const assetId = parseInt(req.params.assetToBeAddedId, 10);
     await assetPortfolio.create({
       assetId,
       portfolioId,
     });
     console.log("you have created the asset");
-    res.redirect("/portfolio");
+    // res.redirect("/portfolio");
   })
 );
 

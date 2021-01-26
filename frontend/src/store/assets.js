@@ -12,26 +12,24 @@ const setOneAsset = (asset) => ({
   type: SET_ONE_ASSET,
   asset: asset,
 });
-const addAsset = (addedAsset) => ({
+const postAnAsset = (addedAsset) => ({
   type: ADD_AN_ASSET,
   addedAsset,
 });
 
 //actions aka middleware
 
-export const postAnAsset = (assetToBeAdded) => async (dispatch) => {
+export const postAnAsset = (assetId) => async (dispatch) => {
   console.log("this post action has started");
-  console.log("this is the assetId", assetToBeAdded);
-  const response = await fetch(`/api/portfolio/${assetToBeAdded.assetId}`, {
+  console.log("this is the assetId", assetId);
+  const response = await fetch(`/api/portfolio/${assetId}`, {
     method: "POST",
-    body: JSON.stringify(assetToBeAdded),
+    body: JSON.stringify({ assetId }),
   });
-  // if (response.ok) {
-  //   const addedAsset = await response.json();
-  //   console.log("this is the json response of the asset you added", addedAsset);
-  dispatch(addAsset(assetToBeAdded));
-  // }
+
+  // dispatch(addAsset(assetId));
 };
+
 export const fetchAllAssets = () => {
   return async (dispatch) => {
     const res = await fetch("/api/assets");
@@ -41,7 +39,7 @@ export const fetchAllAssets = () => {
 export const fetchOneAsset = (id) => {
   return async (dispatch) => {
     const res = await fetch(`/api/asset/${id}`);
-    dispatch(setOneAsset(res.data));
+    dispatch(setOneAsset(res.data)); //payload
   };
 };
 
