@@ -9,12 +9,11 @@ router.get(
   "/:id",
   asyncHandler(async (req, res) => {
     const userId = await parseInt(req.params.id, 10);
-    const portfolio = await Portfolio.findByPk(userId, {
-      where: { userId: 4 },
+    const portfolio = await Portfolio.findOne({
+      where: { userId: userId },
       include: [
         {
           model: Asset,
-          where: { name: "Roach" },
           through: { attributes: [] },
         },
       ],
@@ -40,45 +39,15 @@ router.post(
   "/:assetToBeAddedId",
   asyncHandler(async (req, res) => {
     console.log("post an asset");
-    const assetToBeAddedId = parseInt(req.params.assetId, 10);
-    const assetPortfolio = await assetPortfolio.findOne({
-      where: {
-        portfolioId: 4,
-        assetId: assetToBeAddedId,
-      },
+    const portfolioId = 4;
+    const assetId = parseInt(req.params.assetId, 10);
+    await assetPortfolio.create({
+      assetId,
+      portfolioId,
     });
-    if (assetPortfolio) {
-      assetPortfolio.assetId = assetId;
-      assetPortfolio.portfolioId = portfolioId;
-      await assetPortfolio.save();
-      res.redirect("/portfolio");
-    } else {
-      await assetPortfolio.create({
-        assetId,
-        portfolioId,
-      });
-      console.log("you have created the asset");
-      res.redirect("/portfolio");
-    }
+    console.log("you have created the asset");
+    res.redirect("/portfolio");
   })
 );
-
-// router.post(
-//   "/:id",
-//   asyncHandler(async (req, res) => {
-//     const { assetId, portfolioId } = req.body;
-//     console.log("this is the request body", req.body);
-//     const assetToBeAddedId = parseInt(req.params.id, 10);
-//     const addedAsset = await assetPortfolio.create({
-//       assetId,
-//       portfolioId,
-//     });
-//     console.log(
-//       "this is where the information from the asset you created",
-//       addedAsset
-//     );
-//     return res.json({ addedAsset });
-//   })
-// );
 
 module.exports = router;
