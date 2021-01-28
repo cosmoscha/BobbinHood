@@ -54,8 +54,16 @@ router.post(
   asyncHandler(async (req, res) => {
     console.log("post an asset");
     console.log(req.params);
-    const portfolioId = 4;
+    const portfolioId = 5;
     const assetId = parseInt(req.params.assetToBeAddedId, 10);
+    const existingPortfolio = await assetPortfolio.findOne({
+      where: {
+        userId: req.body.userId,
+      },
+    });
+    if (existingPortfolio) {
+      await
+    }
     await assetPortfolio.create({
       assetId,
       portfolioId,

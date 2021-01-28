@@ -24,11 +24,11 @@
   background-size: cover;
   background-color: green;
 }
-* {
+/* * {
   background-color: black;
   color: white;
   font: "Maison Neue";
-}
+} */
 
 .footer {
   background-color: red;

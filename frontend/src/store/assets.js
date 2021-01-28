@@ -12,22 +12,23 @@ const setOneAsset = (asset) => ({
   type: SET_ONE_ASSET,
   asset: asset,
 });
-const postAnAsset = (addedAsset) => ({
+const addAsset = (addedAsset) => ({
   type: ADD_AN_ASSET,
   addedAsset,
 });
 
 //actions aka middleware
 
-export const postAnAsset = (assetId) => async (dispatch) => {
+export const postAnAsset = (userId, assetId) => async (dispatch) => {
   console.log("this post action has started");
   console.log("this is the assetId", assetId);
+  console.log("this is the userId", userId);
   const response = await fetch(`/api/portfolio/${assetId}`, {
     method: "POST",
-    body: JSON.stringify({ assetId }),
+    body: JSON.stringify({ userId, assetId }),
   });
 
-  // dispatch(addAsset(assetId));
+  dispatch(addAsset(userId, assetId));
 };
 
 export const fetchAllAssets = () => {
