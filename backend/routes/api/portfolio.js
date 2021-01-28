@@ -45,7 +45,7 @@ router.post(
       where: { assetId: assetId },
     });
     await assetPortfolio.destroy();
-    res.redirect("/portfolio");
+    // res.redirect("/portfolio");
   })
 );
 
@@ -54,16 +54,16 @@ router.post(
   asyncHandler(async (req, res) => {
     console.log("post an asset");
     console.log(req.params);
-    const portfolioId = 5;
+    const portfolioId = req.body.userId;
     const assetId = parseInt(req.params.assetToBeAddedId, 10);
-    const existingPortfolio = await assetPortfolio.findOne({
-      where: {
-        userId: req.body.userId,
-      },
-    });
-    if (existingPortfolio) {
-      await
-    }
+    // const existingPortfolio = await assetPortfolio.findOne({
+    //   where: {
+    //     userId: req.body.userId,
+    //   },
+    // });
+    // if (existingPortfolio) {
+    //   await
+    // }
     await assetPortfolio.create({
       assetId,
       portfolioId,

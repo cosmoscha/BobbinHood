@@ -2,12 +2,9 @@
   display: flex;
   flex-direction: row;
   align-items: right;
-  /* justify-content: space-between; */
-  position: relative;
+  position: static;
 }
 .menuContainer {
-  /* display: grid;
-  grid-template-columns: 1, 1, 1, 1, 2; */
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -17,8 +14,14 @@
   grid-column-start: 5;
   grid-column-end: 5;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: row;
+  width: 500px;
+  height: 100px;
+  padding-top: 50px;
+  position: static;
+  border-color: green;
+  border-style: bold;
 }
 .logOutButtons {
   display: flex;
@@ -29,8 +32,14 @@
   background-color: red;
   display: grid;
   grid-template-columns: 1fr 0.8fr;
-  height: 10vh;
+  height: 15vh;
   margin-top: 0%;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
+}
+
+.featureLink {
+  /* width: 33.33%; */
+  padding: 5px;
 }
