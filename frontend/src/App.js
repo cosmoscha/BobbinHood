@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect, Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormModal from "./components/LoginFormModal";
 import AssetsPage from "./components/AssetsPage";
@@ -14,6 +14,7 @@ import WatchlistPage from "./components/WatchlistPage";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const sessionUser = useSelector((state) => state.session.user);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -26,6 +27,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/">
+            {sessionUser ? <Redirect to="/" /> : <Redirect to="/" />}
             <WelcomePage />
           </Route>
           <Route path="/signup">
@@ -34,17 +36,17 @@ function App() {
           <Route path="/login">
             <LoginFormModal />
           </Route>
-          <Route path="/assets">
-            <AssetsPage />
+          <Route exact path="/assets">
+            {sessionUser ? <AssetsPage /> : <Redirect to="/" />}
           </Route>
           <Route path="/asset/:assetId">
-            <AssetInformation />
+            {sessionUser ? <AssetInformation /> : <Redirect to="/" />}
           </Route>
-          <Route path="/portfolio">
-            <PortfolioPage />
+          <Route exact path="/portfolio">
+            {sessionUser ? <PortfolioPage /> : <Redirect to="/" />}
           </Route>
-          <Route path="/watchlist">
-            <WatchlistPage />
+          <Route exact path="/watchlist">
+            {sessionUser ? <WatchlistPage /> : <Redirect to="/" />}
           </Route>
         </Switch>
       )}

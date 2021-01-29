@@ -56,15 +56,7 @@ function reducer(state = initialState, action) {
       newState = [action.asset]; //make the value of the redux state =1
       return newState;
     case ADD_AN_ASSET: {
-      // return {
-      //   ...state,
-      //   [action.addedAsset.id]: {
-      //     ...state[action.addedAsset.id],
-      //     ...action.addedAsset,
-      //   },
-      // };
       console.log("action.payload", action.addAsset);
-      // newState = Object.assign({}, state, {});
       newState = [...state, action.addedAsset];
       return newState;
     }
