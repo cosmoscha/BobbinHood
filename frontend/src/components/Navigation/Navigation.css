@@ -16,12 +16,12 @@
   display: flex;
   justify-content: space-around;
   align-items: row;
-  width: 500px;
+  width: 640px;
   height: 100px;
-  padding-top: 50px;
   position: static;
   border-color: green;
   border-style: bold;
+  justify-content: center;
 }
 .logOutButtons {
   display: flex;
@@ -29,17 +29,32 @@
   justify-content: right;
 }
 .navbarContainer {
-  background-color: red;
+  background-color: rgb(212, 0, 255);
   display: grid;
-  grid-template-columns: 1fr 0.8fr;
-  height: 15vh;
-  margin-top: 0%;
+  grid-template-columns: 1fr 1fr;
+  /* height: 15vh;
+  margin-top: 0%; */
+  top: 0;
+  width: 100%;
   align-items: center;
   justify-content: flex-end;
-  position: relative;
+  position: fixed;
 }
 
 .featureLink {
   /* width: 33.33%; */
-  padding: 5px;
+  padding: 15px;
+}
+
+.mast {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 300%;
+}
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
 }

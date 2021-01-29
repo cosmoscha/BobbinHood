@@ -1,17 +1,21 @@
 .home-body {
-  /* display: grid;
-    grid-template-columns: repeat(1fr, 6);
-    grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr 1fr; */
+  display: grid;
+  grid-template-columns: repeat(1fr, 3);
   background-color: pink;
   display: flex;
   justify-content: center;
+  align-items: column;
   height: 100%;
   width: 100%;
-  position: absolute;
   top: 10%;
   bottom: 10%;
   left: 0.45%;
   right: 0.45%;
   overflow: hidden;
   z-index: -1;
+}
+
+.info-body {
+  grid-column-start: 1;
+  grid-column-end: 2;
 }

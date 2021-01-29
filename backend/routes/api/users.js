@@ -29,11 +29,23 @@ router.post(
   "",
   validateSignup,
   asyncHandler(async (req, res) => {
-    const { email, password, username } = req.body;
+    const {
+      email,
+      password,
+      username,
+      userId,
+      costBasis,
+      profit,
+      percentage,
+    } = req.body;
     const user = await User.signup({ email, username, password });
-
+    const portfolio = await Portfolio.create({
+      userId: user.id,
+      costBasis,
+      profit,
+      percentage,
+    });
     await setTokenCookie(res, user);
-
     return res.json({
       user,
       portfolio,

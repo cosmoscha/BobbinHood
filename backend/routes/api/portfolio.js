@@ -64,12 +64,13 @@ router.post(
     // if (existingPortfolio) {
     //   await
     // }
-    await assetPortfolio.create({
+    const addedAsset = await assetPortfolio.create({
       assetId,
       portfolioId,
     });
+    console.log("this is the addedAsset", addedAsset.asset);
     console.log("you have created the asset");
-    // res.redirect("/portfolio");
+    return res.json({ addedAsset });
   })
 );
 

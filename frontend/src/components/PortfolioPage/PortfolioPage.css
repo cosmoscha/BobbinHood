@@ -1,8 +1,20 @@
 .PortfolioContainer {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(100px, 4);
   justify-content: center;
-  align-items: space-around;
+  align-items: space-around; */
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 0.45%;
+  right: 0.45%;
+  overflow: hidden;
+  z-index: -1;
 }
 .PortfolioTable {
   display: grid;

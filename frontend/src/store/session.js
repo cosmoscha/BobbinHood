@@ -1,4 +1,5 @@
 import { fetch } from "./csrf.js";
+import { Redirect } from "react-router-dom";
 
 const SET_USER = "session/setUser";
 const REMOVE_USER = "session/removeUser";
@@ -28,13 +29,26 @@ export const restoreUser = () => async (dispatch) => {
 };
 
 export const signup = (user) => async (dispatch) => {
-  const { username, email, password } = user;
+  const {
+    username,
+    email,
+    password,
+    userId,
+    costBasis,
+    profit,
+    percentage,
+  } = user;
+  // const { userId, costBasis, profit, percentage } = portfolio;
   const response = await fetch("/api/users", {
     method: "POST",
     body: JSON.stringify({
       username,
       email,
       password,
+      userId,
+      costBasis,
+      profit,
+      percentage,
     }),
   });
 
@@ -47,7 +61,6 @@ export const logout = () => async (dispatch) => {
     method: "DELETE",
   });
   dispatch(removeUser());
-  return response;
 };
 
 const initialState = { user: null };

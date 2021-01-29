@@ -9,9 +9,9 @@ const WelcomePage = () => {
   return (
     <>
       <div className="home-body">
-        <div className="graph-placeholder">
+        {/* <div className="graph-placeholder">
           <WatchlistPage />
-        </div>
+        </div> */}
       </div>
     </>
   );

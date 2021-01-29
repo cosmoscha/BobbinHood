@@ -21,14 +21,14 @@ const addAsset = (addedAsset) => ({
 
 export const postAnAsset = (userId, assetId) => async (dispatch) => {
   console.log("this post action has started");
-  console.log("this is the assetId", assetId);
   console.log("this is the userId", userId);
   const response = await fetch(`/api/portfolio/${assetId}`, {
     method: "POST",
     body: JSON.stringify({ userId, assetId }),
   });
-
-  dispatch(addAsset(userId, assetId));
+  console.log("this is the response", response);
+  console.log("this is the assetId", assetId);
+  dispatch(addAsset(assetId));
 };
 
 export const fetchAllAssets = () => {
@@ -56,13 +56,17 @@ function reducer(state = initialState, action) {
       newState = [action.asset]; //make the value of the redux state =1
       return newState;
     case ADD_AN_ASSET: {
-      return {
-        ...state,
-        [action.addedAsset.id]: {
-          ...state[action.addedAsset.id],
-          ...action.addedAsset,
-        },
-      };
+      // return {
+      //   ...state,
+      //   [action.addedAsset.id]: {
+      //     ...state[action.addedAsset.id],
+      //     ...action.addedAsset,
+      //   },
+      // };
+      console.log("action.payload", action.addAsset);
+      // newState = Object.assign({}, state, {});
+      newState = [...state, action.addedAsset];
+      return newState;
     }
     default:
       return state;

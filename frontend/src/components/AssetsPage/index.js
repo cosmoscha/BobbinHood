@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-import AssetsPage from './AssetsPage'
-
+import React, { useState } from "react";
+import AssetsPage from "./AssetsPage";
+import "./AssetsPage.css";
 
 function Assets() {
-    return (
-        <>
+  return (
+    <>
+      <div className="home-body">
         <AssetsPage />
-        </>
-    )
+      </div>
+    </>
+  );
 }
-export default Assets
+export default Assets;

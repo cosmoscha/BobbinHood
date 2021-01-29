@@ -13,9 +13,10 @@
   display: flex;
   justify-content: center;
   height: 100%;
+  width: 100%;
   position: absolute;
-  top: 15%;
-  bottom: 0;
+  top: 18%;
+  bottom: 10%;
   left: 0.45%;
   right: 0.45%;
   overflow: hidden;
@@ -31,6 +32,7 @@
   /* background-image: url(ants.jpg); */
   background-size: cover;
   background-color: green;
+  padding: 10px;
 }
 /* * {
   background-color: black;

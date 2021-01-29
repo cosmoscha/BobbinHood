@@ -26,9 +26,16 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className="navbarContainer">
-      <NavLink exact to="/">
-        Home
-      </NavLink>
+      <div className="HomeButton">
+        <NavLink exact to="/">
+          Home
+        </NavLink>
+      </div>
+      <div>
+        <div className="mast">BobbinHood</div>
+        <div className="description">"what is this, stocks for ants?"</div>
+      </div>
+
       {isLoaded && sessionLinks}
     </div>
   );
