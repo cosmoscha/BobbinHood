@@ -3,14 +3,17 @@ const router = express.Router();
 const asyncHandler = require("express-async-handler");
 const db = require("../../db/models");
 const { assetPortfolio, Portfolio, Asset } = require("../../db/models");
-const asset = require("../../db/models/asset");
 
 router.get(
   "/:id",
   asyncHandler(async (req, res) => {
     const userId = await parseInt(req.params.id, 10);
+    // const userId = req.body.userId;
+    console.log("userId", userId);
     const portfolio = await Portfolio.findOne({
-      where: { userId: userId },
+      where: {
+        userId: userId,
+      },
       include: [
         {
           model: Asset,
@@ -56,17 +59,11 @@ router.post(
     console.log(req.params);
     const portfolioId = req.body.userId;
     const assetId = parseInt(req.params.assetToBeAddedId, 10);
-    // const existingPortfolio = await assetPortfolio.findOne({
-    //   where: {
-    //     userId: req.body.userId,
-    //   },
-    // });
-    // if (existingPortfolio) {
-    //   await
-    // }
+    const quantity = 0;
     const addedAsset = await assetPortfolio.create({
       assetId,
       portfolioId,
+      quantity,
     });
     console.log("this is the addedAsset", addedAsset.asset);
     console.log("you have created the asset");

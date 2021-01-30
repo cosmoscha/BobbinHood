@@ -26,9 +26,10 @@ export const deleteAnAsset = (assetToBeDeleted) => async (dispatch) => {
   }
 };
 
-export const fetchPortfolio = (id) => {
+export const fetchPortfolio = (portfolioId) => {
   return async (dispatch) => {
-    const res = await fetch(`/api/portfolio${id}`);
+    const res = await fetch(`/api/portfolio/${portfolioId}`);
+    console.log("this is res.data", res.data);
     dispatch(fetchOnePortfolio(res.data));
   };
 };

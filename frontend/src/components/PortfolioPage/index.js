@@ -7,10 +7,12 @@ import "./PortfolioPage.css";
 
 function PortfolioPage() {
   const portfolio = useSelector((state) => state.portfolio);
+  const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPortfolio());
+    console.log("this is user.id", user.id);
+    dispatch(fetchPortfolio(user.id));
   }, []);
   return (
     <>

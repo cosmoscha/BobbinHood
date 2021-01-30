@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       price: DataTypes.DECIMAL,
       marketCap: DataTypes.DECIMAL,
       rating: DataTypes.STRING,
+      description: DataTypes.STRING,
     },
     {}
   );

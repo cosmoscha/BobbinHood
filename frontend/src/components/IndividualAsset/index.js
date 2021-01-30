@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchOneAsset, postAnAsset } from "../../store/assets";
-import * as sessionActions from "../../store/session";
 import { useParams } from "react-router-dom";
 import "./IndividualAsset.css";
 

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
 import { NavLink } from "react-router-dom";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-
+  const userUrl = useSelector((state) => state.session.user);
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -47,7 +47,7 @@ function ProfileButton({ user }) {
             <NavLink to="/assets">Assets</NavLink>
           </div>
           <div className="featureLink">
-            <NavLink to="/portfolio">Portfolio</NavLink>
+            <NavLink to={`/portfolio/${userUrl.id}`}>Portfolio</NavLink>
           </div>
           <div className="featureLink">
             <NavLink to="/watchlist">watchlist</NavLink>

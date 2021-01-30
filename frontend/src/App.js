@@ -15,6 +15,7 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const sessionUser = useSelector((state) => state.session.user);
+  console.log("this is the sessionuser", sessionUser);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -42,10 +43,10 @@ function App() {
           <Route path="/asset/:assetId">
             {sessionUser ? <AssetInformation /> : <Redirect to="/" />}
           </Route>
-          <Route exact path="/portfolio">
+          <Route path="/portfolio/:id">
             {sessionUser ? <PortfolioPage /> : <Redirect to="/" />}
           </Route>
-          <Route exact path="/watchlist">
+          <Route path="/watchlist/:id">
             {sessionUser ? <WatchlistPage /> : <Redirect to="/" />}
           </Route>
         </Switch>
