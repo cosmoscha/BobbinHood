@@ -1,7 +1,7 @@
 .home-body {
   display: grid;
   grid-template-columns: repeat(1fr, 3);
-  background-color: pink;
+  background-color: steelblue;
   display: flex;
   justify-content: center;
   align-items: column;

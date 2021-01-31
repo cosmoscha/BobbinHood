@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllAssets } from "../../store/assets";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./AssetsPage.css";
 
@@ -17,6 +17,7 @@ const Asset = ({ theAsset }) => {
 const AssetsPage = () => {
   const dispatch = useDispatch();
   const AssetsList = useSelector((state) => state.assets);
+  console.log("this is the AssetsList", AssetsList);
 
   useEffect(async () => {
     dispatch(fetchAllAssets());

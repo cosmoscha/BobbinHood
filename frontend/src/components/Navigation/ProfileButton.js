@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
 import { NavLink } from "react-router-dom";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -45,11 +46,11 @@ function ProfileButton({ user }) {
         <div className="featureLink">
           <NavLink to="/watchlist">watchlist</NavLink>
         </div>
-        <div className="featureLink">{user.username}</div>
-        <div className="featureLink">{user.email}</div>
+        {/* <div className="featureLink">{user.username}</div>
+        <div className="featureLink">{user.email}</div> */}
         <div>
           <button className="featureLink" onClick={logout}>
-            Log Out
+            <ExitToAppIcon fontSize="default" />
           </button>
         </div>
       </div>

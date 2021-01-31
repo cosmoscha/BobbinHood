@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css";
 
-function LoginForm() {
+function LoginForm({ setShowModal }) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -17,6 +18,16 @@ function LoginForm() {
         if (res.data && res.data.errors) setErrors(res.data.errors);
       }
     );
+  };
+
+  const demo = (e) => {
+    e.preventDefault();
+    setErrors([]);
+    return dispatch(
+      sessionActions.login({ credential: "demo@user.io", password: "password" })
+    ).catch((res) => {
+      if (res.data && res.data.errors) setErrors(res.data.errors);
+    });
   };
 
   return (
@@ -47,6 +58,9 @@ function LoginForm() {
           />
         </label>
         <button type="submit">Log In</button>
+        <NavLink to="/" onClick={(e) => demo(e) && setShowModal(false)}>
+          Demo User
+        </NavLink>
       </form>
     </>
   );

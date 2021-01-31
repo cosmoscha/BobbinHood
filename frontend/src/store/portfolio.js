@@ -2,15 +2,20 @@ import { fetch } from "./csrf.js";
 
 const DELETE_AN_ASSET = "portfolio/DELETE_AN_ASSET";
 const SET_ONE_PORTFOLIO = "portfolio/SET_ONE_PORTFOLIO";
-
+const SET_PORTFOLIO_ASSETS = "portfolio/SET_PORTFOLIO_ASSETS";
 const destroyAsset = (destroyedAsset) => ({
   type: DELETE_AN_ASSET,
   destroyedAsset,
 });
 
-const fetchOnePortfolio = (portfolio) => ({
+const fetchOnePortfolio = (fetchedPortfolio) => ({
   type: SET_ONE_PORTFOLIO,
-  portfolio,
+  fetchedPortfolio,
+});
+
+const fetchPAssets = (payload) => ({
+  type: SET_PORTFOLIO_ASSETS,
+  payload,
 });
 
 export const deleteAnAsset = (assetToBeDeleted) => async (dispatch) => {
@@ -29,8 +34,15 @@ export const deleteAnAsset = (assetToBeDeleted) => async (dispatch) => {
 export const fetchPortfolio = (portfolioId) => {
   return async (dispatch) => {
     const res = await fetch(`/api/portfolio/${portfolioId}`);
-    console.log("this is res.data", res.data);
-    dispatch(fetchOnePortfolio(res.data));
+    console.log("this is res.data", res.data.portfolio);
+    dispatch(fetchOnePortfolio(res.data.portfolio));
+  };
+};
+export const fetchPortfolioAssets = (portfolioId) => {
+  return async (dispatch) => {
+    const res = await fetch(`/api/portfolio/${portfolioId}`);
+    console.log("this is res.data", res.data.portfolio.Assets);
+    dispatch(fetchPAssets(res.data.portfolio.Assets));
   };
 };
 
@@ -44,11 +56,18 @@ function portfolioReducer(state = initialState, action) {
       delete newState[action.destroyAsset];
       return newState;
     }
-    case SET_ONE_PORTFOLIO: {
-      newState = [action.portfolio];
+    case SET_ONE_PORTFOLIO:
+      newState = Object.assign({}, state, {
+        portfolio: action.fetchedPortfolio,
+      });
       console.log("this is the newState", newState);
       return newState;
-    }
+
+    case SET_PORTFOLIO_ASSETS:
+      newState = Object.assign({}, state, {
+        portfolioAssets: action.payload,
+      });
+      return newState;
     default:
       return state;
   }

@@ -1,9 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
+import HomeIcon from "@material-ui/icons/Home";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -16,7 +17,7 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        <div className="logOutButtons">
+        <div className="loginButtons">
           <LoginFormModal />
           <NavLink to="/signup">Sign Up</NavLink>
         </div>
@@ -26,14 +27,21 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className="navbarContainer">
-      <div className="HomeButton">
-        <NavLink exact to="/">
-          Home
-        </NavLink>
-      </div>
-      <div>
-        <div className="mast">BobbinHood</div>
-        <div className="description">"what is this, stocks for ants?"</div>
+      <Link exact to="/" className="homeButton">
+        <HomeIcon fontSize="large" />
+      </Link>
+      <div className="mastContainer">
+        <div className="mast">
+          <Link
+            exact
+            to="/"
+            style={{ textDecoration: "none" }}
+            className="MastLink"
+          >
+            BobbinHood
+          </Link>
+        </div>
+        <div className="description">welcome to BobbinHood</div>
       </div>
       {isLoaded && sessionLinks}
     </div>

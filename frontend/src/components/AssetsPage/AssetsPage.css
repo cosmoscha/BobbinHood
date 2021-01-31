@@ -2,7 +2,7 @@
   /* display: grid;
     grid-template-columns: repeat(1fr, 6);
     grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr 1fr; */
-  background-color: pink;
+  background-color: steelblue;
   display: flex;
   justify-content: center;
   height: 100%;

@@ -9,16 +9,14 @@
   /* display: grid;
   grid-template-columns: repeat(1fr, 6);
   grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr 1fr; */
-  background-color: pink;
+  background-color: rgb(70, 180, 79);
   display: flex;
   justify-content: center;
   height: 100%;
   width: 100%;
   position: absolute;
-  top: 18%;
+  top: 10%;
   bottom: 10%;
-  left: 0.45%;
-  right: 0.45%;
   overflow: hidden;
   z-index: -1;
 }
@@ -33,6 +31,8 @@
   background-size: cover;
   background-color: green;
   padding: 10px;
+  position: relative;
+  top: 20%;
 }
 /* * {
   background-color: black;
