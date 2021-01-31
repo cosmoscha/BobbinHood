@@ -10,9 +10,11 @@ module.exports = {
       },
       assetId: {
         type: Sequelize.INTEGER,
+        references: { model: "Users" },
       },
       portfolioId: {
         type: Sequelize.INTEGER,
+        references: { model: "Portfolios" },
       },
       quantity: {
         type: Sequelize.INTEGER,

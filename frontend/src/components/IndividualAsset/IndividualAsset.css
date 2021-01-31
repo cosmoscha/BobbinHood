@@ -13,6 +13,7 @@
   right: 0.45%;
   overflow: hidden;
   z-index: -1;
+  position: absolute;
 }
 
 .info-body {

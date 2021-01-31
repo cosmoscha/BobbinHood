@@ -46,6 +46,7 @@ function portfolioReducer(state = initialState, action) {
     }
     case SET_ONE_PORTFOLIO: {
       newState = [action.portfolio];
+      console.log("this is the newState", newState);
       return newState;
     }
     default:

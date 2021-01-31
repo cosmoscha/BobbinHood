@@ -35,7 +35,6 @@ function Navigation({ isLoaded }) {
         <div className="mast">BobbinHood</div>
         <div className="description">"what is this, stocks for ants?"</div>
       </div>
-
       {isLoaded && sessionLinks}
     </div>
   );
