@@ -9,13 +9,24 @@ import Navigation from "./components/Navigation";
 import WelcomePage from "./components/WelcomePage";
 import AssetInformation from "./components/IndividualAsset";
 import PortfolioPage from "./components/PortfolioPage";
+import PortfolioInfo from "./components/PortfolioPage/portfolioinfo";
 import WatchlistPage from "./components/WatchlistPage";
-
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const isPortfolioLoaded = useSelector(
+    state => (state.portfolio.portfolio.length !== 0) ? true : false
+  );
+  const isPortfolioAssetsLoaded = useSelector(
+    state => (state.portfolio.portfolioAssets.length !== 0) ? true : false
+  );
+  const portfolio = useSelector((state) => state.portfolio.portfolio);
+  const portfolioAssets = useSelector(
+    (state) => state.portfolio.portfolioAssets
+  );
   const sessionUser = useSelector((state) => state.session.user);
   console.log("this is the sessionuser", sessionUser);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -43,7 +54,7 @@ function App() {
           <Route path="/asset/:assetId">
             {sessionUser ? <AssetInformation /> : <Redirect to="/" />}
           </Route>
-          <Route path="/portfolio/:id">
+          <Route path="/portfolio">
             {sessionUser ? <PortfolioPage /> : <Redirect to="/" />}
           </Route>
           <Route path="/watchlist/:id">
