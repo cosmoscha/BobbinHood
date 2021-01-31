@@ -10,17 +10,18 @@ router.get(
     const userId = await parseInt(req.params.id, 10);
     // const userId = req.body.userId;
     console.log("userId", userId);
-    const portfolio = await Portfolio.findOne({
+    const portfolio = await assetPortfolio.findAll({
       where: {
         userId: userId,
       },
-      include: [
-        {
-          model: Asset,
-          through: { attributes: ["assetId", "portfolioId"] },
-        },
-      ],
+      // include: [
+      //   {
+      //     model: Asset,
+      //     through: { attributes: ["assetId", "portfolioId"] },
+      //   },
+      // ],
     });
+    console.log("portfolio response", portfolio);
     return res.json(portfolio);
   })
 );
@@ -65,7 +66,7 @@ router.post(
       portfolioId,
       quantity,
     });
-    console.log("this is the addedAsset", addedAsset.asset);
+    console.log("this is the addedAsset", addedAsset);
     console.log("you have created the asset");
     return res.json({ addedAsset });
   })

@@ -44,7 +44,6 @@ function portfolioReducer(state = initialState, action) {
       delete newState[action.destroyAsset];
       return newState;
     }
-
     case SET_ONE_PORTFOLIO: {
       newState = [action.portfolio];
       return newState;

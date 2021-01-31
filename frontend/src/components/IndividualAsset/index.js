@@ -8,17 +8,17 @@ const AssetInformation = () => {
   const dispatch = useDispatch();
   const AssetInfo = useSelector((state) => state.assets[0]);
   const user = useSelector((state) => state.session.user);
-  const urlInformation = useParams();
-  console.log(urlInformation);
+  const assetId = useParams();
+  // console.log(urlInformation);
 
   const addToPortfolio = (e) => {
     e.preventDefault();
-    console.log("url information", urlInformation.assetId);
-    dispatch(postAnAsset(user.id, urlInformation.assetId));
+    console.log("url information", assetId);
+    dispatch(postAnAsset(user.id, assetId));
   };
 
   useEffect(async () => {
-    dispatch(fetchOneAsset(urlInformation.assetId));
+    dispatch(fetchOneAsset(assetId.assetId));
   }, []);
   if (!AssetInfo) return null;
 
