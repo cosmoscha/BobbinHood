@@ -1,4 +1,5 @@
 .home-body {
+  color: white;
   display: grid;
   grid-template-columns: repeat(1fr, 3);
   background-color: steelblue;
@@ -19,4 +20,22 @@
 .info-body {
   grid-column-start: 1;
   grid-column-end: 2;
+  top: 20vh;
+  position: relative;
+  width: 1000px;
+  height: 600px;
+  background-image: url("ants3.jpg");
+  background-repeat: no-repeat;
+  background-size: 1000px 600px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 200%;
+}
+.tableData {
+  display: flex;
+  justify-content: space-between;
+  font-size: 200%;
 }

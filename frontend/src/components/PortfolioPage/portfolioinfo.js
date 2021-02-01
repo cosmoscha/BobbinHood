@@ -87,7 +87,8 @@ function PortfolioInfo({ portfolio, portfolioAssets }) {
       width: "100%",
     },
     container: {
-      maxHeight: 440,
+      minHeight: 440,
+      maxHeight: 640,
     },
   });
 

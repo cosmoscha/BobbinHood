@@ -6,4 +6,14 @@
   text-align: center;
   height: 300px;
   width: 200px;
+  background-image: url("ants4.jpg");
+  background-size: 300px 200px;
+  font-weight: bold;
+  font-size: 150%;
+}
+
+.demo {
+  background-color: rgb(128, 126, 0);
+  border: 1px solid #000000;
+  border-radius: 50px;
 }

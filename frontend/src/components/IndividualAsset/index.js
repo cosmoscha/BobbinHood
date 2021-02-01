@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchOneAsset, postAnAsset } from "../../store/assets";
 import { useParams } from "react-router-dom";
 import "./IndividualAsset.css";
+import AddIcon from "@material-ui/icons/Add";
 
 const AssetInformation = () => {
   const dispatch = useDispatch();
@@ -20,13 +21,13 @@ const AssetInformation = () => {
   useEffect(async () => {
     dispatch(fetchOneAsset(assetId.assetId));
   }, []);
+
   if (!AssetInfo) return null;
 
   return (
-    <>
-      <div className="home-body">
+    <div className="home-body">
+      {/* <div className="home-body">
         <div className="info-body">
-          <h1>page for information on each specific asset</h1>
           <div>name:{AssetInfo.name}</div>
           <div>price:{AssetInfo.price}</div>
           <div>marketcap:{AssetInfo.marketCap}</div>
@@ -35,8 +36,31 @@ const AssetInformation = () => {
             add to portfolio
           </button>
         </div>
-      </div>
-    </>
+      </div> */}
+
+      <table className="info-body">
+        <tbody>
+          <tr className="header">
+            <th>Name</th>
+            <th>Price</th>
+            <th>Market Cap</th>
+            <th>Rating</th>
+            <th></th>
+          </tr>
+          <tr className="tableData">
+            <td>{AssetInfo.name}</td>
+            <td>{AssetInfo.price}</td>
+            <td>{AssetInfo.marketCap}</td>
+            <td>{AssetInfo.rating}</td>
+            <td>
+              <button type="button" onClick={addToPortfolio}>
+                <AddIcon />
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   );
 };
 

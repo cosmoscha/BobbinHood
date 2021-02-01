@@ -58,7 +58,11 @@ function LoginForm({ setShowModal }) {
           />
         </label>
         <button type="submit">Log In</button>
-        <NavLink to="/" onClick={(e) => demo(e) && setShowModal(false)}>
+        <NavLink
+          to="/"
+          onClick={(e) => demo(e) && setShowModal(false)}
+          className="demo"
+        >
           Demo User
         </NavLink>
       </form>
