@@ -21,9 +21,8 @@ function AssetInfoGet({ AssetInfo }) {
   }
   let AssetInfoArray;
   AssetInfoArray = Object.values(AssetInfo);
-  console.log("this is the AssetInfoArray", AssetInfoArray);
+
   const AssetMap = AssetInfoArray.map((asset) => {
-    console.log("this is the row asset", asset);
     return createData(asset);
   });
   const rows = [createData(AssetMap)];
