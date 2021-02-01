@@ -46,7 +46,7 @@ router.post(
   asyncHandler(async (req, res) => {
     // const userId = await parseInt(req.session.auth.userId);
     const assetId = parseInt(req.params.assetId, 10);
-    const assetPortfolio = await db.assetPortfolio.findOne({
+    const assetPortfolio = await db.AssetPortfolio.findOne({
       where: { assetId: assetId },
     });
     await assetPortfolio.destroy();

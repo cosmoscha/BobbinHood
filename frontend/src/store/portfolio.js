@@ -19,15 +19,17 @@ const fetchPAssets = (payload) => ({
 });
 
 export const deleteAnAsset = (assetToBeDeleted) => async (dispatch) => {
-  const response = await fetch(`/api/portfolio`, {
-    method: "DELETE",
-    body: JSON.stringify(assetToBeDeleted),
+  console.log("starting to delete asset");
+  const response = await fetch(`/api/portfolio/delete/${assetToBeDeleted}`, {
+    method: "POST",
+    body: JSON.stringify({ assetToBeDeleted }),
   });
 
   if (response.ok) {
     const deletedAsset = await response.json();
     console.log(deletedAsset);
-    dispatch(destroyAsset(assetToBeDeleted));
+    console.log("this is the response of felete", response);
+    dispatch(destroyAsset(deletedAsset));
   }
 };
 

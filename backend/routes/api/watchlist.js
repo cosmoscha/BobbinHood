@@ -10,18 +10,17 @@ router.get(
     const userId = await parseInt(req.params.id, 10);
     // const userId = req.body.userId;
     console.log("userId", userId);
-    const portfolio = await Watchlist.findOne({
+    const watchlist = await Watchlist.findOne({
       where: {
         userId: userId,
       },
       include: [
         {
           model: Asset,
-          through: { attributes: ["assetId", "portfolioId"] },
         },
       ],
     });
-    return res.json(portfolio);
+    return res.json(watchlist);
   })
 );
 
