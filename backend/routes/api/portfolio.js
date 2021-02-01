@@ -64,7 +64,7 @@ router.post(
         userId: req.body.userId,
       },
     });
-    console.log(portfolio);
+    console.log("this is the req.body", portfolio.dataValues);
     const assetId = parseInt(req.params.assetToBeAddedId, 10);
     const quantity = 0;
     const addedAsset = await db.assetPortfolio.create({

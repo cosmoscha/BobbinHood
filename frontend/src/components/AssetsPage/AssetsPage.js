@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllAssets } from "../../store/assets";
 import { Link } from "react-router-dom";
+import Assets from "./assetslist";
 
 import "./AssetsPage.css";
 
@@ -9,7 +10,7 @@ const Asset = ({ theAsset }) => {
   const linkUrl = `/asset/${theAsset.id}`;
   return (
     <div>
-      <Link to={linkUrl}>{theAsset.name}</Link>
+      <Link to={linkUrl}>{theAsset.symbol}</Link>
     </div>
   );
 };

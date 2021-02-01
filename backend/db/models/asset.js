@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Asset = sequelize.define(
     "Asset",
     {
+      symbol: DataTypes.STRING,
       name: DataTypes.STRING,
       price: DataTypes.DECIMAL,
       marketCap: DataTypes.DECIMAL,
