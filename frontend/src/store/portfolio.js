@@ -19,7 +19,6 @@ const fetchPAssets = (payload) => ({
 });
 
 export const deleteAnAsset = (assetToBeDeleted) => async (dispatch) => {
-  console.log("starting to delete asset");
   const response = await fetch(`/api/portfolio/delete/${assetToBeDeleted}`, {
     method: "POST",
     body: JSON.stringify({ assetToBeDeleted }),
@@ -27,8 +26,7 @@ export const deleteAnAsset = (assetToBeDeleted) => async (dispatch) => {
 
   if (response.ok) {
     const deletedAsset = await response.json();
-    console.log(deletedAsset);
-    console.log("this is the response of felete", response);
+
     dispatch(destroyAsset(deletedAsset));
   }
 };
@@ -36,14 +34,14 @@ export const deleteAnAsset = (assetToBeDeleted) => async (dispatch) => {
 export const fetchPortfolio = (portfolioId) => {
   return async (dispatch) => {
     const res = await fetch(`/api/portfolio/${portfolioId}`);
-    console.log("this is res.data", res.data.portfolio);
+
     dispatch(fetchOnePortfolio(res.data.portfolio));
   };
 };
 export const fetchPortfolioAssets = (portfolioId) => {
   return async (dispatch) => {
     const res = await fetch(`/api/portfolio/${portfolioId}`);
-    console.log("this is res.data", res.data.portfolio.Assets);
+
     dispatch(fetchPAssets(res.data.portfolio.Assets));
   };
 };
@@ -62,7 +60,7 @@ function portfolioReducer(state = initialState, action) {
       newState = Object.assign({}, state, {
         portfolio: action.fetchedPortfolio,
       });
-      console.log("this is the newState", newState);
+
       return newState;
 
     case SET_PORTFOLIO_ASSETS:

@@ -18,7 +18,6 @@ const Asset = ({ theAsset }) => {
 const AssetsPage = () => {
   const dispatch = useDispatch();
   const AssetsList = useSelector((state) => state.assets);
-  console.log("this is the AssetsList", AssetsList);
 
   useEffect(async () => {
     dispatch(fetchAllAssets());

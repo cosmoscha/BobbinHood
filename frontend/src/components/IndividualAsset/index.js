@@ -7,14 +7,13 @@ import "./IndividualAsset.css";
 const AssetInformation = () => {
   const dispatch = useDispatch();
   const AssetInfo = useSelector((state) => state.assets[0]);
-  console.log("this is the AssetInfo", AssetInfo);
+
   const user = useSelector((state) => state.session.user);
   const assetId = useParams();
-  // console.log(urlInformation);
 
   const addToPortfolio = (e) => {
     e.preventDefault();
-    console.log("url information", assetId);
+
     dispatch(postAnAsset(user.id, assetId));
   };
 

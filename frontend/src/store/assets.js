@@ -20,16 +20,11 @@ const addAsset = (addedAsset) => ({
 //actions aka middleware
 
 export const postAnAsset = (userId, assetId) => async (dispatch) => {
-  console.log("this post action has started");
-  console.log("this is the userId", userId);
-  console.log("this is the assetId", assetId);
-  console.log("this is the assetId.Id", assetId.assetId);
   const response = await fetch(`/api/portfolio/${assetId.assetId}`, {
     method: "POST",
     body: JSON.stringify({ userId, assetId }),
   });
-  console.log("this is the response", response.data.addedAsset);
-  console.log("this is the assetId", assetId);
+
   dispatch(addAsset(response.data.addedAsset));
 };
 
@@ -58,9 +53,8 @@ function reducer(state = initialState, action) {
       newState = [action.asset]; //make the value of the redux state =1
       return newState;
     case ADD_AN_ASSET: {
-      console.log("action.payload", action.addAsset);
       newState = [...state, action.addedAsset];
-      console.log("this is the newState", newState);
+
       return newState;
     }
     default:
