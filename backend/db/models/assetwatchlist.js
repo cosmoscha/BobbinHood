@@ -1,11 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const assetWatchlist = sequelize.define('assetWatchlist', {
+  const AssetWatchlist = sequelize.define('AssetWatchlist', {
     assetId: DataTypes.INTEGER,
     watchlistId: DataTypes.INTEGER
   }, {});
-  assetWatchlist.associate = function(models) {
+  AssetWatchlist.associate = function(models) {
     // associations can be defined here
   };
-  return assetWatchlist;
+  return AssetWatchlist;
 };
