@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllAssets } from "../../store/assets";
 import { Link } from "react-router-dom";
 import Assets from "./assetslist";
+import AssetsLister from "./assetslist";
 
 import "./AssetsPage.css";
 
@@ -23,16 +24,7 @@ const AssetsPage = () => {
     dispatch(fetchAllAssets());
   }, []);
 
-  if (!AssetsList) return null;
-
-  return (
-    <div id="Assets-List">
-      <h2>Assets List</h2>
-      {AssetsList.map((asset) => {
-        return <Asset theAsset={asset} key={asset.id} />;
-      })}
-    </div>
-  );
+  return <>{AssetsList && <AssetsLister AssetsList={AssetsList} />}</>;
 };
 
 export default AssetsPage;

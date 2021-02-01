@@ -5,14 +5,13 @@ const assetsRouter = require("./assets.js");
 const assetRouter = require("./asset.js");
 const portfolioRouter = require("./portfolio.js");
 const express = require("express");
-const router = express.Router();
-const apiRouter = require("./api");
+// const apiRouter = require("./api");
 
 router.post("/test", function (req, res) {
   res.json({ requestBody: req.body });
 });
 
-router.use("/api", apiRouter);
+// router.use("/api", apiRouter);
 
 router.use("/session", sessionRouter);
 

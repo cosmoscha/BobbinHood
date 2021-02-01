@@ -22,8 +22,6 @@ function App() {
 
   return (
     <>
-      {/* <nav className="header">here is the Header</nav> */}
-
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
@@ -51,7 +49,6 @@ function App() {
           </Route>
         </Switch>
       )}
-      {/* <nav className="footer">here is the footer</nav> */}
     </>
   );
 }

@@ -10,6 +10,7 @@
   grid-template-columns: repeat(1fr, 6);
   grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr 1fr; */
   background-color: rgb(70, 180, 79);
+  background-image: url("ant2.jpg");
   display: flex;
   justify-content: center;
   height: 100%;
@@ -29,7 +30,6 @@
   align-items: row;
   /* background-image: url(ants.jpg); */
   background-size: cover;
-  background-color: green;
   padding: 10px;
   position: relative;
   top: 20%;

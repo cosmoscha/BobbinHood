@@ -18,10 +18,12 @@
   align-items: row;
   /* width: 640px;
   height: 100px; */
-  position: static;
+  position: relative;
   border-color: green;
   border-style: bold;
   justify-content: center;
+  border: 2px solid #000000;
+  border-radius: 40px;
 }
 .loginButtons {
   grid-column-start: 5;
@@ -36,7 +38,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   top: 0;
   width: 100%;
-  height: 18%;
+  height: 25%;
   align-items: center;
   justify-content: flex-end;
   position: fixed;

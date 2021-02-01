@@ -161,27 +161,6 @@ function PortfolioInfo({ portfolio, portfolioAssets }) {
       </Paper>
     </div>
   );
-
-  // return (
-  //   <>
-  //     <div className="PortfolioContainer">
-  //       <div className="PortfolioTable">
-  //         <div className="Tablerow">
-  //           <div>Asset Name</div>
-  //           <div>costBasis</div>
-  //           <div>profit</div>
-  //           <div>percentage</div>
-  //           <div>marketCap</div>
-  //           <div>price</div>
-  //           <div>rating</div>
-  //           {portfolioAssets.map((asset) => {
-  //             return <Asset theAsset={asset} key={asset.id} />;
-  //           })}
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </>
-  // );
 }
 
 export default PortfolioInfo;

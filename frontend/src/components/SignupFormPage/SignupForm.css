@@ -1,7 +1,39 @@
 .test {
-    background-color: rgb(255, 0, 0);
-    color: rgb(192, 255, 245);
-    padding: 40px;
-    font-family: Arial;
-    text-align: center;
-  }
+  color: rgb(255, 255, 255);
+  background-image: url("ants.jpg");
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+  top: 15vh;
+  position: relative;
+  height: 450px;
+  width: 300px;
+  border: 5px solid #000000;
+  border-radius: 40px;
+}
+
+.signupForm {
+  /* background-color: pink; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+  width: 300px;
+}
+
+.formContainer {
+  /* background-color: green; */
+  height: 300px;
+  width: 300px;
+}
+.label {
+  display: flex;
+  flex-flow: column;
+  align-items: right;
+  font-weight: bold;
+}
+
+.input {
+  border: 5px solid #000000;
+  border-radius: 44px;
+}

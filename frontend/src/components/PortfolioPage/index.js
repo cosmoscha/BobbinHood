@@ -3,16 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import PortfolioInfo from "./portfolioinfo";
 import { fetchPortfolio, fetchPortfolioAssets } from "../../store/portfolio";
 import "./PortfolioPage.css";
-import { Switch, Route } from "react-router-dom";
 
 function PortfolioPage() {
   const portfolio = useSelector((state) => state.portfolio.portfolio);
   const portfolioAssets = useSelector(
     (state) => state.portfolio.portfolioAssets
   );
-  // const portfolioLoaded = useSelector(state => (state.portfolio.portfolio.length !==0)? true : false)
-  // const portfolioAssetsLoaded = useSelector(state => (state.portfolio.portfolioAssets.length !==0)? true : false)
-
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
 
