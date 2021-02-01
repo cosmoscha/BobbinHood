@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("assetWatchlists", {
+    return queryInterface.createTable("AssetPortfolios", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,11 +10,15 @@ module.exports = {
       },
       assetId: {
         type: Sequelize.INTEGER,
-        references: { model: "Assets" },
+        references: { model: "Users" },
       },
-      watchlistId: {
+      portfolioId: {
         type: Sequelize.INTEGER,
-        references: { model: "Watchlists" },
+        references: { model: "Portfolios" },
+      },
+      quantity: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,
@@ -29,6 +33,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("assetWatchlists");
+    return queryInterface.dropTable("AssetPortfolios");
   },
 };

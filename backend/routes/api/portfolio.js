@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const asyncHandler = require("express-async-handler");
 const db = require("../../db/models");
-const { assetPortfolio, Portfolio, Asset } = require("../../db/models");
 
 router.get(
   "/:id",
@@ -66,10 +65,14 @@ router.post(
     });
     console.log("this is the req.body", portfolio.dataValues);
     const assetId = parseInt(req.params.assetToBeAddedId, 10);
+    portfolioId = portfolio.dataValues.id;
     const quantity = 0;
-    const addedAsset = await db.assetPortfolio.create({
+    console.log("this is the assetId", assetId);
+    console.log("this is the portfolioId", portfolioId);
+    console.log("this is the quantity", quantity);
+    const addedAsset = await db.AssetPortfolio.create({
       assetId,
-      portfolioId: portfolio.dataValues.id,
+      portfolioId,
       quantity,
     });
     console.log("this is the addedAsset", addedAsset);
