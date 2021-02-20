@@ -1,4 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 import session from "./session";
 import assetsReducer from "./assets";
@@ -9,6 +11,10 @@ const rootReducer = combineReducers({
   session: session,
   portfolio: portfolioReducer,
 });
+const persistConfig = {
+  key: "root",
+  storage,
+};
 
 let enhancer;
 
@@ -20,9 +26,9 @@ if (process.env.NODE_ENV === "production") {
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   enhancer = composeEnhancers(applyMiddleware(thunk, logger));
 }
-
-const configureStore = (preloadedState) => {
-  return createStore(rootReducer, preloadedState, enhancer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+export const configureStore = (preloadedState) => {
+  return createStore(persistedReducer, preloadedState, enhancer);
 };
 
-export default configureStore;
+export const persistor = persistStore(configureStore);
